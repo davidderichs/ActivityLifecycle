@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("ActivityLifecycle", "Lifecycle: Create");
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -26,6 +28,36 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        Log.d("ActivityLifecycle", "Lifecycle: Start");
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        Log.d("ActivityLifecycle", "Lifecycle: Resume");
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        Log.d("ActivityLifecycle", "Lifecycle: Pause");
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        Log.d("ActivityLifecycle", "Lifecycle: Stop");
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        Log.d("ActivityLifecycle", "Lifecycle: Destroy");
     }
 
     @Override
